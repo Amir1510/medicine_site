@@ -1,0 +1,119 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>BLOODLINE - О нас</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    {% include 'links.html' %}
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <nav class="nav">
+          <a href="/" class="logo">
+            <img
+              src="{% static 'image/Иконка страницы.svg' %}"
+              alt="BLOODLINE logo"
+            />
+            <span>BLOОD<span class="red">LINE</span></span>
+          </a>
+          <button class="menu-toggle" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="nav-links-container">
+            <ul class="nav-links">
+              <li><a class="nav-link" href="/">Главная</a></li>
+              <li><a class="nav-link" href="/planned_donations/">Все донации</a></li>
+              <li><a class="nav-link" href="/about_us/">О нас</a></li>
+              <li><a class="nav-link" href="/how_to_be_donors/">Как стать донором</a></li>
+              {% if user.is_authenticated %}
+              <li><a class="nav-link" href="/profile/">Профиль</a></li>
+              <li>
+                <button onclick="logout()" class="btn btn-outline">
+                  Выйти
+                </button>
+              </li>
+              {% else %}
+              <li>
+                <a href="/login/" class="btn btn-outline btn-primary bt"
+                  >Войти</a
+                >
+              </li>
+              {% endif %}
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <section class="about-section">
+        <div class="container">
+          <h2>О нас</h2>
+          <div class="info-card">
+            
+            <p>
+              <span class="red">BLOOD</span>LINE - проект, который стартует в
+              феврале 2025 года.
+            </p>
+            <p>
+              Наша цель - разработка веб-сайта для Доноров ОПК ГКБ 52, с помощью
+              которого доноры получают возможность:
+            </p>
+            <ul>
+              <li>
+                Спланировать донации в соответствии с потребностями отделения
+              </li>
+              <li>Получать информацию о количестве донаций</li>
+              <li>
+                Узнавать полезную информацию, включая потребности отделения
+              </li>
+            </ul>
+            <p>
+              Идея создания сайта возникла в связи с неравномерностью потока
+              доноров, которая создает дополнительную нагрузку на персонал
+              отделения либо не даёт возможности оперативно мобилизовать доноров
+              в случае наличия высокой потребности в крови или её компонентов.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2025 BLOODLINE</p>
+      </div>
+    </footer>
+
+    <script src="{% static 'js/script.js' %}"></script>
+    <script>
+      function logout() {
+        fetch("{% url 'logout' %}", {
+          method: "POST",
+          headers: {
+            "X-CSRFToken": "{{ csrf_token }}",
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          credentials: "include",
+        }).then((response) => {
+          if (response.ok) {
+            window.location.href = "/";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

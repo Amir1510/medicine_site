@@ -1,0 +1,1139 @@
+:root {
+  --primary-color: #e53935;
+  --secondary-color: #1e88e5;
+  --background-color: #f5f5f5;
+  --text-color: #333333;
+  --light-gray: #e0e0e0;
+  --white: #ffffff;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+@media (max-width: 890px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links-container {
+    display: none;
+    width: 100%;
+  }
+
+  .nav-links-container.active {
+    display: block;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-links li {
+    margin: 0.5rem 0;
+  }
+}
+
+.head_content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid #000000;
+  padding-bottom: 10px;
+}
+
+.head_content-title {
+  display: flex;
+  gap: 17px;
+  align-items: center;
+  transition: transform 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.head_content-title:hover {
+  transform: scale(1.05);
+}
+
+.head_content-title-red {
+  font-family: "Montserrat Medium", sans-serif;
+  font-weight: 500;
+  color: #ff0000;
+}
+
+.head_content-title-text {
+  display: flex;
+  line-height: 1.2;
+  font-style: normal;
+}
+
+.head_content-title-black {
+  font-family: "Montserrat ExtraLight", sans-serif;
+  font-weight: 200;
+  color: #000000;
+}
+
+.head_content-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 300px;
+}
+
+.head_content-button,
+.head_content-button-logout,
+.head_content-button-profile {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-align: center;
+}
+
+.head_content-button {
+  background: #6659fc;
+  color: #ffffff;
+}
+
+.head_content-button-logout {
+  background-color: #dc3545;
+  color: #ffffff;
+}
+
+.head_content-button-profile {
+  background-color: #6659fc;
+  color: #ffffff;
+}
+
+.head_content-button:hover,
+.head_content-button-logout:hover,
+.head_content-button-profile:hover {
+  opacity: 0.9;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+}
+
+.content_navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1rem 0;
+  background-color: #ffffff;
+  width: 100%;
+  align-items: center;
+}
+
+.content_navigation-button {
+  width: 100%;
+  max-width: 300px;
+  padding: 0.5rem;
+  background: #f5f5f5;
+  border: 2px solid rgba(211, 210, 210, 0.3);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.content_navigation-button:hover {
+  background-color: #6659fc;
+  color: #ffffff;
+}
+
+.content_navigation-button-link {
+  font-family: "Montserrat Regular", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #787878;
+  text-decoration: none;
+}
+
+.content_navigation-button-link-active {
+  color: #000000;
+}
+
+.content_block {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 20px;
+  margin: 1rem 0;
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.content_block:hover {
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  transform: scale(95%);
+}
+
+.content_block-main-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.content_block-main-content-card {
+  margin-bottom: 1rem;
+}
+
+.content_block-main-content-card-title {
+  font-family: "Montserrat Regular", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: #000000;
+  margin-bottom: 0.5rem;
+}
+
+.content_block-main-content-card-address {
+  font-family: "Montserrat Regular", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: #000000;
+  margin-bottom: 0.5rem;
+}
+
+.content_block-main-content-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+.content_block-main-content-list-items {
+  background: rgba(0, 128, 0, 0.7);
+  border: 3px solid rgba(0, 128, 0, 0.3);
+  border-radius: 5px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.content_block-main-content-list-items:hover {
+  transform: scale(1.1);
+}
+
+.content_block-main-content-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.content_block-main-content-links-red {
+  background: rgba(255, 0, 0, 0.7);
+  border: 3px solid rgba(255, 0, 0, 0.3);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  width: 100%;
+  max-width: 300px;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.content_block-main-content-links-red:hover {
+  background-color: rgba(255, 0, 0, 0.9);
+}
+
+.content_block-main-content-button {
+  font-family: "Montserrat Regular", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.content_block-main-content-link {
+  font-family: "Montserrat Regular", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #0000ff;
+}
+
+.content_block-main-content-card-schedule {
+  width: 100%;
+  max-width: 362px;
+  background: rgba(245, 245, 245, 0.3);
+  border: 3px solid rgba(211, 210, 210, 0.1);
+  border-radius: 25px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.content_block-main-content-card-schedule-title {
+  font-family: "Montserrat Regular", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: #000000;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.content_block-main-content-card-schedule-day-list {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.content_block-main-content-card-schedule-day {
+  font-family: "Montserrat Regular", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #000000;
+  list-style: none;
+}
+
+.profile-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-title {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #6659fc;
+}
+
+.profile-info {
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.profile-info p {
+  margin-bottom: 0.5rem;
+}
+
+.profile-info strong {
+  color: #6659fc;
+}
+
+@media (min-width: 890px) {
+  .head_content {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .head_content-title {
+    margin-bottom: 0;
+  }
+
+  .head_content-buttons {
+    flex-direction: row;
+    max-width: none;
+  }
+
+  .head_content-button,
+  .head_content-button-logout,
+  .head_content-button-profile {
+    width: auto;
+  }
+
+  .content {
+    flex-direction: row;
+  }
+
+  .content_navigation {
+    width: 25%;
+    margin-right: 1rem;
+  }
+
+  .content_block {
+    width: 75%;
+  }
+
+  .content_block-main-content {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .content_block-main-content-card {
+    width: 60%;
+  }
+
+  .content_block-main-content-card-schedule {
+    width: 35%;
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .content_navigation {
+    width: 20%;
+  }
+
+  .content_block {
+    width: 80%;
+  }
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.header {
+  background-color: var(--white);
+  box-shadow: inset 0 0 20px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.logo img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.logo .red {
+  color: var(--primary-color);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin-left: 1.5rem;
+  align-self: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+}
+
+select,
+option {
+  cursor: pointer;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: var(--white);
+  color: var(--primary-color);
+  padding: 0.4rem 1rem;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-color);
+  color: var(--white);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: scale(95%);
+}
+
+.btn-outline {
+  border: 1.46px solid var(--primary-color);
+  color: var(--primary-color);
+  background-color: transparent;
+}
+
+.btn-outline:hover {
+  background-color: var(--primary-color);
+  color: var(--white);
+  transform: scale(95%);
+}
+
+.btn-large {
+  padding: 10px 10px;
+  align-self: center;
+  border: 1px solid var(--primary-color);
+  margin-top: 17px;
+}
+
+.hero {
+  color: var(--text-color);
+  text-align: center;
+  padding: 4rem 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.hero h1 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.4rem;
+}
+
+.blood-groups {
+  padding: 4rem 0;
+}
+
+.blood-groups h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.blood-group-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1rem;
+}
+
+.blood-group {
+  background-color: var(--light-gray);
+  color: var(--text-color);
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s, color 0.3s;
+}
+
+.blood-group:hover,
+.blood-group.active {
+  background-color: var(--primary-color);
+  color: var(--white);
+  transform: scale(95%);
+}
+
+.donation-center {
+  padding: 4rem 0;
+  background-color: var(--white);
+}
+
+.donation-center h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.donation-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.info-card {
+  background-color: var(--background-color);
+  padding: 2rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.info-card h3 {
+  margin-bottom: 1rem;
+}
+
+.info-card p,
+.info-card li {
+  margin-bottom: 0.5rem;
+}
+
+.schedule {
+  list-style: none;
+}
+
+.info-section {
+  padding: 4rem 0;
+  background-color: var(--white);
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.info-card {
+  padding: 2rem;
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+}
+
+.fa-directions {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.info-card .fas:not(.fa-directions) {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.info-card h3 {
+  margin-bottom: 1rem;
+}
+
+.footer {
+  background-color: var(--white);
+  text-align: center;
+  padding: 1rem 0;
+  box-shadow: inset 0 0 20px 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 890px) {
+  .nav {
+    flex-direction: column;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+
+  .nav-links li {
+    margin: 0.5rem 0;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+  }
+  .blood-group-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .donation-info {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .btn-large {
+    padding: 10px 10px;
+    align-self: center;
+    border: 1px solid var(--primary-color);
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+}
+
+.map-container {
+  width: 100%;
+  height: 400px;
+  margin-top: 2rem;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.info-card-link-items {
+  text-decoration: none;
+  color: blue;
+}
+
+.info-card-link-items:hover {
+  text-decoration: none;
+  color: rgb(114, 1, 167);
+  text-decoration-line: underline;
+}
+
+.main-content {
+  padding: 2rem 0 0 0;
+  margin-bottom: 35px;
+}
+.auth-form-container {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: var(--white);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.auth-form-container h2 {
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.auth-form {
+  margin-top: 1rem;
+}
+
+.auth-form .form-group {
+  margin-bottom: 1rem;
+}
+
+.auth-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.auth-form input,
+.auth-form select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--light-gray);
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.auth-form .btn {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.auth-form .text-center {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.alert {
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}
+
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+select.form-control {
+  height: calc(2.25rem + 2px);
+}
+
+input[type="time"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid var(--light-gray);
+  border-radius: 4px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  width: 100%;
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+  background: none;
+  display: none;
+}
+
+input[type="time"]::-webkit-datetime-edit-ampm-field {
+  display: none;
+}
+
+input[type="time"]::-webkit-clear-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  margin: -10px;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+@media (max-width: 890px) {
+  .auth-form-container {
+    padding: 1rem;
+  }
+
+  .form-group {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.btn-end {
+  text-align: center;
+  border: none;
+}
+
+.bt {
+  font-weight: normal;
+}
+
+.conteiner_title-and-red-active-blood_groups {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.red_ative-blood-groups {
+  background: var(--primary-color);
+  width: 15px;
+  height: 15px;
+  margin-bottom: 1.8rem;
+  margin-left: 0.5rem;
+  border-radius: 2px;
+}
+
+.planned-donations {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+  padding: 2rem 0;
+}
+
+.donation-card {
+  padding: 2rem;
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3sease;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.donation-card h3 {
+  margin-bottom: 1rem;
+}
+
+.donation-card p {
+  margin-bottom: 0.5rem;
+}
+
+.donation-card strong {
+  color: #6659fc;
+}
+
+.delete-btn {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+.bt {
+  font-weight: normal;
+}
+
+.nav-link {
+  color: var(--text-color);
+  transition: text-decoration-line 1s, background-color 0.5s, color 0.3s;
+}
+
+.nav-link:hover {
+  color: var(--primary-color);
+  text-decoration-line: overline;
+}
+
+.nav-links li {
+  transition: transform 0.5s;
+}
+
+.nav-links li:hover:not(:last-child) {
+  transform: translateY(-2px);
+}
+
+.info-card h2 {
+  margin-bottom: 20px;
+}
+
+.bloodgroups-form-container {
+  max-width: 400px;
+  margin: 2rem auto;
+  background-color: var(--white);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.bloodgroops-form h2 {
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.bloodgroops-form p {
+  margin-bottom: 1rem;
+}
+
+.bloodgroops-form label {
+  display: inline-block;
+  margin-right: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.bloodgroops-form select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--light-gray);
+  border-radius: 4px;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.bloodgroops-form select:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.bloodgroops-form input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 48px;
+  height: 24px;
+  background-color: var(--light-gray);
+  border-radius: 12px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.5s;
+}
+
+.bloodgroops-form input[type="checkbox"]::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: var(--white);
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.3s;
+}
+
+.bloodgroops-form input[type="checkbox"]:checked {
+  background-color: var(--primary-color);
+}
+
+.bloodgroops-form input[type="checkbox"]:checked::after {
+  transform: translateX(24px);
+}
+
+.bloodgroops-form .btn {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.blood-groups {
+  padding: 2rem 0;
+}
+
+.blood-group-grid {
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 480px) {
+  .bloodgroups-form-container {
+    padding: 1rem;
+  }
+}
+
+.bloodgroops-form .checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+}
+
+.bloodgroops-form .checkbox-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.bloodgroops-form input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+.bloodgroops-form .checkbox-status {
+  margin-left: 0.5rem;
+}
+
+.bloodgroops-form .checkbox-status {
+  transition: color 0.3s ease;
+  color: var(--light-gray);
+}
+
+.bloodgroops-form input[type="checkbox"]:checked + .checkbox-status {
+  color: var(--primary-color);
+}
+
+.donation-card {
+  padding: 1.5rem;
+  background-color: var(--white);
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.donation-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.donation-card h3 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.donation-card p {
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  color: var(--text-color);
+  line-height: 1.4;
+}
+
+.donation-card strong {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.delete-btn {
+  margin-top: 1rem;
+  color: var(--primary-color);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.4s, color 0.3s;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block;
+  border: 1.46px solid var(--primary-color);;
+}
+
+.delete-btn:hover {
+  transform: scale(94%);
+  background-color: var(--primary-color);
+}
+
+.donation-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), #c62828);
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.donation-card:hover::before {
+  opacity: 1;
+}
+

@@ -1,0 +1,58 @@
+[
+    {
+        "model": "medicine_app.bloodgroup",
+        "fields": {
+            "group": "A+",
+            "is_active": false
+        }
+    },
+    {
+        "model": "medicine_app.bloodgroup",
+        "fields": {
+            "group": "A-",
+            "is_active": false
+        }
+    },
+    {
+        "model": "medicine_app.bloodgroup",
+        "fields": {
+            "group": "B+",
+            "is_active": false
+        }
+    },
+    {
+        "model": "medicine_app.bloodgroup",
+        "fields": {
+            "group": "B-",
+            "is_active": false
+        }
+    },
+    {
+        "model": "medicine_app.bloodgroup",
+        "fields": {
+            "group": "AB+",
+            "is_active": false
+        }
+    },
+    {
+        "model": "medicine_app.bloodgroup",
+        "fields": {
+            "group": "AB-",
+            "is_active": false
+        }
+    },
+    {
+        "model": "medicine_app.bloodgroup",
+        "fields": {
+            "group": "O+",
+            "is_active": false
+        }
+    },
+    {
+        "model": "medicine_app.bloodgroup",
+        "fields": {
+            "group": "O-",
+            "is_active": false
+        }
+    }
+]

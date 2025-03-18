@@ -1,0 +1,158 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>BLOODLINE - Как стать донором</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    {% include 'links.html' %}
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <nav class="nav">
+          <a href="/" class="logo">
+            <img
+              src="{% static 'image/Иконка страницы.svg' %}"
+              alt="BLOODLINE logo"
+            />
+            <span>BLOОD<span class="red">LINE</span></span>
+          </a>
+          <button class="menu-toggle" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="nav-links-container">
+            <ul class="nav-links">
+              <li><a class="nav-link" href="/">Главная</a></li>
+              <li><a class="nav-link" href="/planned_donations/">Все донации</a></li>
+              <li><a class="nav-link" href="/about_us/">О нас</a></li>
+              <li><a class="nav-link" href="/how_to_be_donors/">Как стать донором</a></li>
+              {% if user.is_authenticated %}
+              <li><a class="nav-link" href="/profile/">Профиль</a></li>
+              <li>
+                <button onclick="logout()" class="btn btn-outline">
+                  Выйти
+                </button>
+              </li>
+              {% else %}
+              <li>
+                <a href="/login/" class="btn btn-outline btn-primary bt"
+                  >Войти</a
+                >
+              </li>
+              {% endif %}
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <section class="donor-info-section">
+        <div class="container">
+          <h2>Как стать донором?</h2>
+          <div class="info-card">
+            <ol>
+              <li>
+                Убедитесь, что у вас нет
+                <a
+                  href="{% url 'contraindications' %}"
+                  >противопоказаний</a
+                >
+                к сдаче крови.
+              </li>
+            </ol>
+          </div>
+
+          <div class="info-card">
+            <h2>Как подготовиться к сдаче крови?</h2>
+            <ul>
+              <li>
+                Накануне и в день сдачи крови не рекомендуется употреблять
+                жирную, жареную, острую и копченую пищу, а также молочные
+                продукты, яйца и масло, орехи, финики, бананы и авокадо.
+              </li>
+              <li>
+                За 48 часов до визита на станцию переливания нельзя употреблять
+                алкоголь, а за 72 часа - принимать лекарства, содержащие аспирин
+                и анальгетики.
+              </li>
+              <li>
+                Утром нужно легко позавтракать. Натощак сдавать кровь нельзя!
+              </li>
+            </ul>
+          </div>
+
+          <div class="info-card">
+            <h2>Что делать после сдачи крови?</h2>
+            <ul>
+              <li>
+                Если вы чувствуете головокружение или слабость, обратитесь к
+                персоналу. Самый простой способ победить головокружение: лечь на
+                спину и поднять ноги выше головы, либо сесть и опустить голову
+                между колен.
+              </li>
+              <li>
+                Воздержитесь от курения в течение часа до и после кроводачи. Не
+                снимайте повязку в течение 3–4 часов, старайтесь, чтобы она не
+                намокла.
+              </li>
+              <li>
+                Старайтесь не подвергаться значительным физическим нагрузкам в
+                течение суток. Воздержитесь от употребления алкоголя в течение
+                суток.
+              </li>
+              <li>Ограничений по вождению автомобиля в день кроводачи нет.</li>
+              <li>
+                За руль мотоцикла можно садиться через 2 часа после кроводачи.
+              </li>
+            </ul>
+          </div>
+
+          <div class="info-card important-info">
+            <p>
+              <strong>Важно:</strong> Интервал между сдачей цельной крови 60
+              дней. Мужчины могут сдавать цельную кровь максимум 5 раз в год, а
+              женщины 4 раза в год.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2025 BLOODLINE</p>
+      </div>
+    </footer>
+
+    <script src="{% static 'js/script.js' %}"></script>
+    <script>
+      function logout() {
+        fetch("{% url 'logout' %}", {
+          method: "POST",
+          headers: {
+            "X-CSRFToken": "{{ csrf_token }}",
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          credentials: "include",
+        }).then((response) => {
+          if (response.ok) {
+            window.location.href = "/";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

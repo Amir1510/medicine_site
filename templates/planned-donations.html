@@ -1,0 +1,157 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>BLOODLINE - Запланированные донации</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  {% include 'links.html' %}
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <a href="/" class="logo">
+          <img
+            src="{% static 'image/Иконка страницы.svg' %}"
+            alt="BLOODLINE logo"
+          />
+          <span>BLOОD<span class="red">LINE</span></span>
+        </a>
+        <button class="menu-toggle" aria-label="Toggle menu">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="nav-links-container">
+          <ul class="nav-links">
+            <li><a class="nav-link" href="/">Главная</a></li>
+            <li><a class="nav-link" href="/planned_donations/">Все донации</a></li>
+            <li><a class="nav-link" href="/about_us/">О нас</a></li>
+            <li><a class="nav-link" href="/how_to_be_donors/">Как стать донором</a></li>
+            {% if user.is_authenticated %}
+            <li><a class="nav-link" href="/profile/">Профиль</a></li>
+            <li>
+              <button onclick="logout()" class="btn btn-outline">
+                Выйти
+              </button>
+            </li>
+            {% else %}
+            <li>
+              <a href="/login/" class="btn btn-outline btn-primary bt"
+                >Войти</a
+              >
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+      <h2>Запланированные донации</h2>
+      <div class="planned-donations" id="planned-donations">
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 BLOODLINE</p>
+    </div>
+  </footer>
+
+  <script src="{% static 'js/script.js' %}"></script>
+  <script>
+    function logout() {
+      fetch("{% url 'logout' %}", {
+        method: "POST",
+        headers: {
+          "X-CSRFToken": "{{ csrf_token }}",
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        credentials: "include",
+      }).then((response) => {
+        if (response.ok) {
+          window.location.href = "/";
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      loadPlannedDonations();
+    });
+
+    function loadPlannedDonations() {
+      fetch('/api/planned-donations/')
+        .then(response => response.json())
+        .then(data => {
+          const container = document.getElementById('planned-donations');
+          container.innerHTML = '';
+          data.forEach(donation => {
+            const card = createDonationCard(donation);
+            container.appendChild(card);
+          });
+        })
+        .catch(error => console.error('Error loading planned donations:', error));
+    }
+
+    function createDonationCard(donation) {
+      if ((donation.time) != null) {
+      const card = document.createElement('div');
+      card.className = 'donation-card';
+      card.innerHTML = `
+        <h3>Запланированная донация</h3>
+        <p><strong>Имя:</strong> ${donation.username}</p>
+        <p><strong>Дата:</strong> ${donation.data}</p>
+        <p><strong>Время:</strong> ${donation.time}</p>
+        <p><strong>Группа крови:</strong> ${donation.group_of_blood}</p>
+        <p><strong>Возраст:</strong> ${donation.age} лет</p>
+        <p><strong>Рост:</strong> ${donation.height} см</p>
+        <p><strong>Вес:</strong> ${donation.weight} кг</p>
+        <button onclick="deleteDonation(${donation.id}, '${donation.username}')" class="btn btn-outline btn-primary delete-btn">Удалить</button>
+      `;
+      return card;}
+    }
+
+    function deleteDonation(donationId, donationName) {
+      fetch("{% url 'is_staff' %}",{
+        method: "POST",
+        headers:{
+          "X-CSRFToken": "{{ csrf_token }}",
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ "username": "{{ request.user.username }}" })
+      }).then(response => response.json()).then(data => {
+      if ((donationName == '{{ request.user.username }}') || (data.is_staff == true)){
+        console.log(donationName)
+        console.log("{{ request.user.username }}")
+        console.log(data.is_staff)
+        if (confirm('Вы уверены, что хотите удалить эту запланированную донацию?')) {
+          fetch(`/api/delete_data/${donationId}/`, {
+            method: 'DELETE',
+            headers: {  
+              'X-CSRFToken': '{{ csrf_token }}',
+            },
+          })
+          .then(response => {
+            if (response.ok) {
+              loadPlannedDonations();
+            } else {
+              alert('Не удалось удалить донацию. Пожалуйста, попробуйте еще раз.');
+            }
+          })
+          .catch(error => console.error('Error deleting donation:', error));
+        }
+      }
+      else{
+        alert('Вы не можете удалить чужую донацию.')
+      }
+    })
+    }
+  </script>
+</body>
+</html>
