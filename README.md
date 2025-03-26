@@ -24,12 +24,12 @@ https://www.docker.com/
 
 Введите в terminal
 ```bash
-docker compose up
+docker compose build
 ```
 
 Затем 
 ```bash
-docker compose build
+docker compose up
 ```
 
 после этого прейдете по локальному хосту
