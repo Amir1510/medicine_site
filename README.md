@@ -17,7 +17,7 @@
 https://www.docker.com/
 
 После того, когда скачаете docker
-откройте terminal и rkjybheqnt htgjpbnjhbq c пшерфи
+откройте terminal и клонируйте репозиторий с githab
 
 ```bash
 git clone https://github.com/Amir1510/medicine_site.git
