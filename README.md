@@ -17,10 +17,14 @@
 https://www.docker.com/
 
 После того, когда скачаете docker
-откройте terminal и перейдите
-в корневую директорию проекта
+откройте terminal и rkjybheqnt htgjpbnjhbq c пшерфи
 
-Затем находясь в корневой директории
+```bash
+git clone https://github.com/Amir1510/medicine_site.git
+```
+Затем  перейдите
+в корневую директорию проекта
+и находясь в корневой директории
 
 Введите в terminal
 ```bash
